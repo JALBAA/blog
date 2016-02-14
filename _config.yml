@@ -106,5 +106,5 @@ image_minifier:
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: git@github.com:JALBAA/JALBAA.github.io.git
-  branch: master
+  repository: git@github.com:JALBAA/blog.git
+  branch: gh-pages
