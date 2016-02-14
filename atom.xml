@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>JALBAA</title>
   
-  <link href="/atom.xml" rel="self"/>
+  <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://jalbaa.github.io/blog/"/>
   <updated>2016-02-14T07:57:31.652Z</updated>
