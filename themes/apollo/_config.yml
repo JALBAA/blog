@@ -1,13 +1,13 @@
 menu:
-    博客: /blog
-    归档: /blog/archives/
-    Gallary: /blog/gallary/
+    博客: /
+    归档: /archives/
+    Gallary: /gallary/
     #Weibo: http://weibo.com/sunchongsheng
     GitHub: https://github.com/JALBAA
     #Rss: /atom.xml
 
-favicon: /blog/favicon.png
-logo: /blog/favicon.png
+favicon: /favicon.png
+logo: /favicon.png
 
 # Comment
 # e.g disqus: seansun

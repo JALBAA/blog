@@ -1,13 +1,13 @@
 menu:
-    博客: /
-    Archive: /archives/
-    Gallary: /gallary/
+    博客: /blog
+    归档: /blog/archives/
+    Gallary: /blog/gallary/
     #Weibo: http://weibo.com/sunchongsheng
     GitHub: https://github.com/JALBAA
     #Rss: /atom.xml
 
-favicon: /favicon.png
-logo: /favicon.png
+favicon: /blog/favicon.png
+logo: /blog/favicon.png
 
 # Comment
 # e.g disqus: seansun
@@ -26,4 +26,4 @@ startyear: 2015
 # Font CDN
 #true : use google fonts api, not stable for chinese visitor sometimes, caused by force majeure factor
 #false: use useso fonts api instead of google's, great response speed for chinese visitor
-googlefonts: true
+googlefonts: false
