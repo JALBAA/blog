@@ -108,4 +108,3 @@ deploy:
   type: git
   repo:
       github: git@github.com:JALBAA/blog.git,gh-pages
-      gitcafe: git@gitcafe.com:tangent/blog.git,gh-pages
