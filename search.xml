@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+    
+    <entry>
+      <title><![CDATA[如何实现基于localstorage缓存资源文件（一）]]></title>
+      <url>http://blog.geekine.online/2016/02/22/%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%9F%BA%E4%BA%8Elocalstorage%E7%BC%93%E5%AD%98%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[编程名词正确读法]]></title>
+      <url>http://blog.geekine.online/2016/02/22/%E7%BC%96%E7%A8%8B%E5%90%8D%E8%AF%8D%E6%AD%A3%E7%A1%AE%E8%AF%BB%E6%B3%95/</url>
+      <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><h3 id="youtube"><a href="#youtube" class="headerlink" title="youtube"></a>youtube</h3><blockquote><p>13年在街景工作的时候，有一次地沟油小饭馆吃饭途中，大家谈论到youtube<em>/ˈjuː.tjuːb/</em> 时，隔壁桌一个男青年大声呼唤，<strong>you-to-be</strong> 然后帅气的起身离去，只留下了背影。。。。</p></blockquote><h3 id="github"><a href="#github" class="headerlink" title="github"></a>github</h3><blockquote><p>最近在公司总是听各种同事，各种<em>/dʒthʌb/</em>　，也是无语。。</p></blockquote><h3 id="live"><a href="#live" class="headerlink" title="live"></a>live</h3><blockquote><p>是的公司的cdn目录有两个文件夹，live和develop，live用来维护同线上的同步版本。那么问题来了，/liv/ server是什么鬼？使服务器生存吗？??动词能放主语前面吗？还tm使动用法了我擦？</p></blockquote><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>那么总结下各种编程名词正确语法吧</p><ol><li>github /githʌb/</li><li>youtube<ul><li>uk:/ˈjuːtjuːb/</li><li>us:/ˈjuːtuːb/</li></ul></li><li>live<ul><li>v./liv/</li><li>adj./laiv/</li></ul></li></ol><p><em>ps:不定期更新吧。想起来就加上去</em></p>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[微信Ios下音视频自动播放]]></title>
+      <url>http://blog.geekine.online/2016/02/18/Ios%E4%B8%8B%E9%9F%B3%E8%A7%86%E9%A2%91%E8%87%AA%E5%8A%A8%E6%92%AD%E6%94%BE/</url>
+      <content type="html"><![CDATA[<p>查过很多资料，关于ios下的资料，苹果官方是禁止自动播放音视频的，只能通过用户点击事件触发播放音视频。</p><p>比如stackoverflow上的这个<a href="http://stackoverflow.com/questions/3009888/autoplay-audio-files-on-an-ipad-with-html5" target="_blank" rel="external">讨论</a></p><p>今天偶然查到，微信上，<strong>WeixinJSBridgeReady</strong> 事件的回调函数中，调用audio(video)的play方法，可以实现自动播放，看来微信是对safari做了特殊处理了。</p><p>话说，WeiXinJSBridge按理说，16年起应该已经改用wxjssdk了，但是今天试了试还是能用，感觉略神奇，至少ready还能用。。</p><p>代码如下</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//new 一个音频对象</span></span><br><span class="line"><span class="keyword">var</span> audio = <span class="built_in">document</span>.createElement(<span class="string">'audio'</span>)</span><br><span class="line">audio.src = <span class="string">"//xxx.xxx.mp3"</span></span><br><span class="line">body.append(aduio)</span><br><span class="line"><span class="comment">//侦听weixinjsbridge的ready事件</span></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'WeixinJSBridgeReady'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//这样就能播放了</span></span><br><span class="line">    audio.play();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p>如果是微信jssdk用户 直接在wx.ready回调函数内调用，更加保险，毕竟是官方支持的</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wx.ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//这样就能播放了</span></span><br><span class="line">    audio.play();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p>ps:　safari还是不能自动播放的啊。。所以最好判断下微信ua，分别对待</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//如果不是微信浏览器</span></span><br><span class="line"><span class="comment">//就老老实实的用点击的方式播放把</span></span><br><span class="line"><span class="keyword">if</span>(!navigator.userAgent.match(<span class="regexp">/MicroMessenger/i</span>))&#123;</span><br><span class="line">    audio.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        auido.play();</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    </entry>
+    
+  
+  
+</search>
