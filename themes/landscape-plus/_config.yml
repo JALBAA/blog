@@ -1,0 +1,41 @@
+# Header
+menu:
+  Home: /
+  Archives: /archives
+  专栏: /column
+rss: /atom.xml
+# Content
+excerpt_link: Read More
+fancybox: true
+mathjax: false
+
+# Sidebar
+sidebar: right
+widgets:
+- category
+- tag
+- tagcloud
+- archive
+- recent_posts
+- links
+
+# Links
+links:
+#  My Github: http://github.com/JALBAA
+#  我的知乎: https://www.zhihu.com/people/miao-mi-74-51
+  主题作者: http://xiguabaobao.com
+  热前端: http://reqianduan.com
+
+# Miscellaneous
+google_analytics:
+favicon: /favicon.png
+twitter:
+google_plus:
+fb_admins:
+fb_app_id:
+
+# Duoshuo
+duoshuo_shortname: jalbaa
+
+# Baidu share
+baidushare: true

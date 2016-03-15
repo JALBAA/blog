@@ -1,0 +1,6 @@
+<% if(page.content && page.toc) {%>
+<div id="toc" class="article-entry">
+    <h2 >目录</h2>
+    <%- toc(page.content, {list_number: false}) %>
+</div>
+<%}%>

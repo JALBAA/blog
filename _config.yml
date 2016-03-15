@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: JALBAA
-subtitle:
-description: just_a_little_bit_above_average
-author: ZhaoYe
-language:
+title: JALBAA's blog
+subtitle: just a little bit above average
+description: jalbaa的前端知识分享博客
+author: jalbaa
+language: zh-CN
 timezone:
 
 # URL
@@ -43,10 +43,16 @@ highlight:
   auto_detect: false
   tab_replace:
 
+duoshuo_shortname: jalbaa
+
 # Category & Tag
-default_category: uncategorized
+default_category: test
 category_map:
 tag_map:
+
+archive: 1
+category: 1
+tag: 1
 
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
@@ -63,13 +69,16 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: apollo
+theme: landscape-plus
 
+plugins:
+    - hexo-generator-feed
+    - hexo-generator-baidu-sitemap
 
 # 在归档页面显示所有文章
 # 需要上面安装的 hexo-generator-archive 插件支持
 archive_generator:
-    per_page: 0
+    per_page: 10
     yearly: false
     monthly: false
     daily: false
@@ -84,23 +93,9 @@ marked:
   smartLists: true
   smartypants: true
 
-#minify
-html_minifier:
-  enable: true
-css_minifier:
-  enable: true
-js_minifier:
-  enable: true
-  mangle: true
-  output:
-  compress:
-image_minifier:
-  enable: true
-  interlaced: true
-  multipass: true
-  optimizationLevel: 2
-  pngquant: true
-  progressive: true
+search:
+  path: search.xml
+  field: post
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

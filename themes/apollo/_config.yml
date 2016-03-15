@@ -9,10 +9,13 @@ menu:
 favicon: /favicon.png
 logo: /favicon.png
 
+tags:
+    - tips
+
 # Comment
 # e.g disqus: seansun
 disqus:
-duoshuo: 
+duoshuo:
 
 # Analytics
 # google-analytics:
