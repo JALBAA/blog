@@ -30,7 +30,12 @@ struct Config {
 #[derive(Debug, Deserialize, Serialize)]
 struct ConfigEnv {
 	menu_path: String,
-    books: Vec<String>,
+    books: Vec<Book>,
+}
+#[derive(Debug, Deserialize, Serialize)]
+struct Book {
+    name: String,
+    path: String,
 }
 
 
@@ -41,15 +46,20 @@ pub fn get_books () -> Option<Template> {
 		Ok(f) => f,
 		Err(_) => {
 			return None
-		}
+		},
 	};
 	let mut contents = String::new();
     match file.read_to_string(&mut contents) {
         Ok(f) => f,
         Err(_) => {
             return None
-        }
+        },
     };
 	let config: Config = toml::from_str(&contents[..]).unwrap();
-	Some(Template::render("books", config.production.unwrap()))
+    match config.production {
+        Some(c) => {
+	        Some(Template::render("books", c))
+        },
+        None => None,
+    }
 }

@@ -8,7 +8,7 @@
             {% if books %}
                 {% for book in books %}
                     <li class="nav-item">
-                        <a href="//docs.gomeminus.com/{{book}}">{{book}}</a>
+                        <a href="//docs.gomeminus.com/{{book.path}}">{{book.name}}</a>
                     </li>
                 {% endfor %}
             {% endif %}
