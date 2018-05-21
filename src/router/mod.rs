@@ -51,7 +51,5 @@ pub fn get_books () -> Option<Template> {
         }
     };
 	let config: Config = toml::from_str(&contents[..]).unwrap();
-	println!("{:?}", config);
-
 	Some(Template::render("books", config.production.unwrap()))
 }
