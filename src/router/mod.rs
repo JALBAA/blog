@@ -1,9 +1,57 @@
 pub mod article;
-use std::path::Path;
-use std::path::PathBuf;
-use rocket::response::NamedFile;
 
-#[get("/<file..>")]
-pub fn get_file (file: PathBuf) -> Option<NamedFile> {
-    NamedFile::open(Path::new("static/").join(file)).ok()
+use toml;
+use rocket_contrib::Template;
+use rocket::Route;
+use std::io::Read;
+use std::path::Path;
+use std::fs::File;
+
+pub fn routers () -> Vec<Route> {
+    routes![index, get_books]
+}
+
+
+#[derive(Serialize, Debug)]
+struct Ctx {
+}
+#[get("/")]
+pub fn index () -> Option<Template> {
+    let context = Ctx{};
+	Some(Template::render("index", &context))
+}
+
+#[derive(Debug, Deserialize, Serialize)]
+struct Config {
+	production: Option<ConfigEnv>,
+	development: Option<ConfigEnv>,
+}
+
+#[derive(Debug, Deserialize, Serialize)]
+struct ConfigEnv {
+	menu_path: String,
+    books: Vec<String>,
+}
+
+
+#[get("/books")]
+pub fn get_books () -> Option<Template> {
+	let path = Path::new("Config.toml");
+	let mut file = match File::open(&path) {
+		Ok(f) => f,
+		Err(_) => {
+			return None
+		}
+	};
+	let mut contents = String::new();
+    match file.read_to_string(&mut contents) {
+        Ok(f) => f,
+        Err(_) => {
+            return None
+        }
+    };
+	let config: Config = toml::from_str(&contents[..]).unwrap();
+	println!("{:?}", config);
+
+	Some(Template::render("books", config.production.unwrap()))
 }

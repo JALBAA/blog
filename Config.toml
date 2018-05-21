@@ -1,0 +1,11 @@
+[production]
+menu_path = "/usr/local/nginx/html/docs/"
+books = [
+    "effective-java.pdf",
+    "es1.pdf",
+    "es3.pdf",
+    "expert-c.pdf",
+    "flex_bison.pdf",
+    "partten.pdf",
+    "rust-book"
+    ]

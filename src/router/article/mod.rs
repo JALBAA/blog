@@ -8,18 +8,36 @@ use std::io::Read;
 use rocket_contrib::Template;
 use rocket::Route;
 use std::fs::read_dir;
-
-/*
-struct Months {
-    months: Vec<>
-}
-struct Year {
-    years: Vec<Months>,
-}
-
-*/
 use std::collections::HashMap;
+
+#[derive(Hash, Serialize, Debug)]
+struct Month {
+    articles: Vec<Article>
+}
+
+#[derive(Hash, Serialize, Debug)]
+struct Year {
+    months: Vec<Month>
+}
+
+#[derive(Hash, Serialize, Debug)]
+struct Cat {
+    years: Vec<Year>
+}
+impl PartialEq for Cat {
+    fn eq(&self, other: &Cat) -> bool {
+        true
+    }
+}
+impl Eq for Cat {
+    
+}
 #[derive(Serialize, Debug)]
+struct Menu {
+    cats: HashMap<Cat, Vec<Year>>,
+}
+
+#[derive(Hash, Serialize, Debug)]
 struct Article {
     cat: Option<String>,
     year: Option<String>,
@@ -35,7 +53,6 @@ impl Article {
             name: None,
         }
     }
-    
 }
 // one possible implementation of walking a directory only visiting files
 fn visit_dirs(dir: &Path, files: &mut Vec<Article>) -> io::Result<()> {
@@ -74,9 +91,9 @@ fn visit_dirs(dir: &Path, files: &mut Vec<Article>) -> io::Result<()> {
 
 
 #[derive(Serialize, Debug)]
-struct Name {
+struct Context {
 	markdown_body: String,
-    articles: Vec<Article>,
+    menu: Vec<Article>,
 }
 
 pub fn routers () -> Vec<Route> {
@@ -89,10 +106,21 @@ pub fn fuck () -> String{
     String::from("123")
 }
 
+fn get_menu (files: &Vec<Article>) -> Option<Menu> {
+    let mut menu = Menu {
+        cats: HashMap::new(),
+    };
+    println!("fffffeee: {:?}", menu);
+    for article in files {
+    }
+    None
+}
+
 fn get_file_list () -> Option<Vec<Article>> {
     let dir = Path::new("article");
     let mut files = vec![];
     visit_dirs(&dir, &mut files).unwrap();
+    get_menu(&files);
     Some(files)
 }
 
@@ -113,10 +141,10 @@ pub fn get_article(cat: String, year: String, month: String, name: String) -> Op
         }
     };
     let r = comrak::markdown_to_html(&contents[..], &ComrakOptions::default());
-    let context = Name {
+    let context = Context {
 		markdown_body: r,
-        articles: get_file_list().unwrap(),
+        menu: get_file_list().unwrap(),
 	};
-	Some(Template::render("index", &context))
+	Some(Template::render("article", &context))
 }
 

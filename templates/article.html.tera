@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  {% include "head" %}
+  <body>
+    <div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        <div class="sidebar-sticky">
+            <ul class="nav flex-column" style="overflow:auto;">
+                  {% if articles %}
+                    {% for article in articles %}
+                      <li class="nav-item">
+                        <a href="/{{article.name}}">{{loop.index}}. {{article.name}}</a>
+                      </li>
+                    {% endfor %}
+                  {% endif %}
+            </ul>
+        <div class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
+          <div class="markdown-body">
+            {{ markdown_body | safe }}
+          </div>
+        </div>
+      </div>
+    </div>
+    {# {% include "test" %} #}
+    <script>
+      $(document).ready(function() {
+        $('pre code').each(function(i, block) {
+          hljs.highlightBlock(block);
+        });
+      });
+    </script>
+  </body>
+</html>
