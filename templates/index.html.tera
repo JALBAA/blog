@@ -1,1 +1,43 @@
-首页
+<!DOCTYPE html>
+<html>
+    {% include "head" %}
+    <body>
+        {% include "common_header" %}
+        <div class="container">
+            <div class="row">
+                <div class="col-9">
+                    <div class="card-columns">
+                        {% for i in range(end=5) %}
+                            <div class="card">
+                                {% if i == 0 %}
+                                <img class="card-img-top" src="/static/images/demo/stock-photos/1.jpg" alt="Card image cap">
+                                {% endif %}
+                                <div class="card-body">
+                                    <h4 class="card-title">Sample Card Title</h4>
+                                    <p class="card-text">He seems sinking under the evidence could not only grieve and a visit. The father is to bless and placed
+                                    in his length hid...</p>
+                                    {# <a href="#" class="btn btn-dark">Read More</a> #}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">标签</h4>
+                            <ul class="list">
+                                {% for i in range(end=5) %}
+                                <li class="item">
+                                    <a href="/">标签{{i}}</a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                            {# <a href="#" class="btn btn-dark">Read More</a> #}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  </body>
+</html>

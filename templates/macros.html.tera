@@ -1,0 +1,3 @@
+{% macro activity(label) %}
+    {%if label == title %} {{label}} {%endif%}
+{% endmacro activity %}

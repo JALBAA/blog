@@ -2,17 +2,22 @@
 <html>
   {% include "head" %}
   <body>
-    <div class="container-fluid">
-        <h1>my books</h1>
-        <ul class="nav flex-column" style="overflow:auto;">
-            {% if books %}
-                {% for book in books %}
-                    <li class="nav-item">
-                        <a href="//docs.gomeminus.com/{{book.path}}">{{book.name}}</a>
-                    </li>
-                {% endfor %}
-            {% endif %}
-        </ul>
+    {% include "common_header" %}
+    <div class="container">
+        <div class="row">
+            <h3 class="mr-5">不在电子书上的电子书</h3>
+        </div>
+        <div class="row">
+            <ul  class="mr-5" class="nav flex-column" style="overflow:auto;">
+                {% if content.books %}
+                    {% for book in content.books %}
+                        <li class="nav-item">
+                            <a href="//docs.gomeminus.com/{{book.path}}">{{book.name}}</a>
+                        </li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
     </div>
   </body>
 </html>

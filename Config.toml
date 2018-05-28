@@ -6,4 +6,5 @@ books = [ { name = "effective java(英文版)"    , path = "effective-java.pdf" 
           { name = "expert-c.pdf(英文版)"      , path = "expert-c.pdf" }, 
           { name = "flex和bison.pdf(中文版)"   , path = "flex-bison.pdf" }, 
           { name = "设计模式四人帮版(英文版)"   , path = "partten.pdf" }, 
-          { name = "rust-book第二版翻译版本"    , path = "rust-book" } ]
+          { name = "rust-book第二版翻译版本"    , path = "rust-book" },
+          { name = "线性代数"    , path = "线性代数.pdf" } ]
