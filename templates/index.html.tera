@@ -7,7 +7,32 @@
             <div class="row">
                 <div class="col-9">
                     <div class="card-columns">
-                        {% for i in range(end=5) %}
+                    {% if articles %}
+                        {% for tag in articles %}
+                            {# <p>{{ tag.tag }}</p> #}
+                            {% for year in tag.years %}
+                                {# <p>{{ year.year }}</p> #}
+                                {% for month in year.months %}
+                                    {# <p>{{ month.month }}</p> #}
+                                    {% for article in month.articles %}
+                                        <div class="card">
+                                            {% if article.portrait %}
+                                                <img class="card-img-top" src="{{article.portrait}}" alt="Card image cap">
+                                            {% endif %}
+                                            <div class="card-body">
+                                                <h4 class="card-title">{{ article.name }}</h4>
+                                                {% if article.intro %}
+                                                    <p class="card-text">{{ article.intro }}</p>
+                                                {% endif %}
+                                                <a href="/article/{{tag.tag}}/{{year.year}}/{{month.month}}/{{article.name}}" class="btn btn-dark">Read More</a>
+                                            </div>
+                                        </div>
+                                    {% endfor%}
+                                {% endfor%}
+                            {% endfor%}
+                        {% endfor %}                 
+                    {% endif %}
+                        {# {% for i in range(end=5) %}
                             <div class="card">
                                 {% if i == 0 %}
                                 <img class="card-img-top" src="/static/images/demo/stock-photos/1.jpg" alt="Card image cap">
@@ -16,10 +41,10 @@
                                     <h4 class="card-title">Sample Card Title</h4>
                                     <p class="card-text">He seems sinking under the evidence could not only grieve and a visit. The father is to bless and placed
                                     in his length hid...</p>
-                                    {# <a href="#" class="btn btn-dark">Read More</a> #}
+                                    <a href="#" class="btn btn-dark">Read More</a>
                                 </div>
                             </div>
-                        {% endfor %}
+                        {% endfor %} #}
                     </div>
                 </div>
                 <div class="col-3">

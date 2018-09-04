@@ -7,7 +7,6 @@ use comrak::{ComrakOptions};
 use std::io::Read;
 use rocket_contrib::Template;
 use rocket::Route;
-use std::fs::read_dir;
 use std::collections::HashMap;
 
 #[derive(Hash, Serialize, Debug)]
@@ -80,8 +79,8 @@ fn visit_dirs(dir: &Path, files: &mut Vec<Article>) -> io::Result<()> {
                 if let Some(cat) = iter.next() {
                     article.cat = Some(String::from(*cat));
                 }
-                let file_path = String::from(path);
-                let file_path = file_path.replace(".md", "");
+                // let file_path = String::from(path);
+                // let file_path = file_path.replace(".md", "");
                 files.push(article);
             }
         }

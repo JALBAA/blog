@@ -41,7 +41,7 @@ pub struct A {
 
 use std::sync::{Mutex, Arc};
 fn main() {
-
+	
 	let nav_info = Arc::new(Mutex::new(global::get_nav_info()));
 
 	let counter = Arc::new(Mutex::new(1));

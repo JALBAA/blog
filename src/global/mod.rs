@@ -1,4 +1,3 @@
-use std::fmt::Display;
 
 #[derive(Hash, Serialize, Debug)]
 pub struct NavItem {
@@ -6,11 +5,11 @@ pub struct NavItem {
     href: String,
     pub selected: bool,
 }
+
 #[derive(Hash, Serialize, Debug)]
 pub struct NavInfo {
     pub nav_items: Vec<NavItem>,
 }
-
 
 pub fn get_nav_info () -> NavInfo {
     let mut nav_info = NavInfo {
