@@ -98,6 +98,25 @@ version = "1.0.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
+name = "blog"
+version = "0.1.0"
+dependencies = [
+ "comrak 0.2.14 (registry+https://github.com/rust-lang/crates.io-index)",
+ "handlebars 0.32.4 (registry+https://github.com/rust-lang/crates.io-index)",
+ "markdown 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rocket 0.3.16 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rocket_codegen 0.3.16 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rocket_contrib 0.3.16 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rusqlite 0.14.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "serde 1.0.74 (registry+https://github.com/rust-lang/crates.io-index)",
+ "serde_derive 1.0.74 (registry+https://github.com/rust-lang/crates.io-index)",
+ "serde_json 1.0.26 (registry+https://github.com/rust-lang/crates.io-index)",
+ "tera 0.11.12 (registry+https://github.com/rust-lang/crates.io-index)",
+ "toml 0.4.6 (registry+https://github.com/rust-lang/crates.io-index)",
+ "websocket 0.20.3 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
 name = "byteorder"
 version = "1.2.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -841,25 +860,6 @@ dependencies = [
  "url 1.7.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "version_check 0.1.4 (registry+https://github.com/rust-lang/crates.io-index)",
  "yansi 0.4.0 (registry+https://github.com/rust-lang/crates.io-index)",
-]
-
-[[package]]
-name = "rocket-learn"
-version = "0.1.0"
-dependencies = [
- "comrak 0.2.14 (registry+https://github.com/rust-lang/crates.io-index)",
- "handlebars 0.32.4 (registry+https://github.com/rust-lang/crates.io-index)",
- "markdown 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "rocket 0.3.16 (registry+https://github.com/rust-lang/crates.io-index)",
- "rocket_codegen 0.3.16 (registry+https://github.com/rust-lang/crates.io-index)",
- "rocket_contrib 0.3.16 (registry+https://github.com/rust-lang/crates.io-index)",
- "rusqlite 0.14.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "serde 1.0.74 (registry+https://github.com/rust-lang/crates.io-index)",
- "serde_derive 1.0.74 (registry+https://github.com/rust-lang/crates.io-index)",
- "serde_json 1.0.26 (registry+https://github.com/rust-lang/crates.io-index)",
- "tera 0.11.12 (registry+https://github.com/rust-lang/crates.io-index)",
- "toml 0.4.6 (registry+https://github.com/rust-lang/crates.io-index)",
- "websocket 0.20.3 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
