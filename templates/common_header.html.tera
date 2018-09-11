@@ -1,6 +1,6 @@
 {%import "macros" as macros %}
 <nav class="navbar navbar-expand-lg navbar-light mb-4">
-    <a class="navbar-brand" href="/">zhaoyenb</a>
+    <a class="navbar-brand" href="/">大虫子菌</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown-6" aria-controls="navbarNavDropdown-6" aria-expanded="false" aria-label="Toggle navigation" style="">
     <span class="navbar-toggler-icon"></span>
     </button>
