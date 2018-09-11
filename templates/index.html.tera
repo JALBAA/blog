@@ -4,9 +4,23 @@
     <body>
         {% include "common_header" %}
         <div class="container">
+            <style>
+                .card {
+                    width: 15rem;
+                    margin-right: 2rem;
+                }
+                .card img {
+                    height: 11rem;
+                    width: 15rem;
+                    background-image: url(/static/images/blog/loading.gif);
+                    background-repeat: no-repeat;
+                    background-size: 3rem;
+                    background-position: center 60%;
+                }
+            </style>
             <div class="row">
-                <div class="col-9">
-                    <div class="card-columns">
+                <div class="col-9 row">
+                    {# <div class="col-sm-6"> #}
                     {% if articles %}
                         {% for tag in articles %}
                             {# <p>{{ tag.tag }}</p> #}
@@ -45,9 +59,9 @@
                                 </div>
                             </div>
                         {% endfor %} #}
-                    </div>
+                    {# </div> #}
                 </div>
-                <div class="col-3">
+                {# <div class="col-3">
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">标签</h4>
@@ -59,9 +73,9 @@
                                 {% endfor %}
                             </ul>
                             {# <a href="#" class="btn btn-dark">Read More</a> #}
-                        </div>
+                        {#</div>
                     </div>
-                </div>
+                </div> #}
             </div>
         </div>
   </body>

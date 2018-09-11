@@ -15,7 +15,7 @@ pub fn get_nav_info () -> NavInfo {
     let mut nav_info = NavInfo {
         nav_items: vec![],
     };
-    let nav_info_arr = [("主页", "/"), ("日志", "/articles"), ("读书", "/books")];
+    let nav_info_arr = [/*("主页", "/"), */("日志", "/"), ("读书", "/books")];
     for nav in &nav_info_arr {
         let mut a = NavItem {
             name: String::from(nav.0),

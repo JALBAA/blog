@@ -13,8 +13,7 @@ articles = [
     { tag = "h5", years = [
         { year = "2018", months = [
             { month = "04", articles = [ 
-                { name = "Promise讲解", portrait= "", intro= "ljgqpeighiogwe" },
-                { name = "今天萌萌哒", portrait= "", intro= "ljgqpeighiogwe" },
+                { name = "Promise讲解", portrait= "", intro= "一个关于promise原理的介绍，同时附上一份符合promise/A+官方800+ test case的实现源码。" },
             ]}
         ]}
     ]}

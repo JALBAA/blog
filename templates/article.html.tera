@@ -4,6 +4,11 @@
   <body>
     <div class="container-fluid">
       <div class="row flex-xl-nowrap">
+        {# <div class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content"> #}
+          <div class="markdown-body">
+            {{ markdown_body | safe }}
+          </div>
+        {# </div> #}
         <div class="sidebar-sticky">
             <ul class="nav flex-column" style="overflow:auto;">
                   {% if articles %}
@@ -14,11 +19,7 @@
                     {% endfor %}
                   {% endif %}
             </ul>
-        <div class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
-          <div class="markdown-body">
-            {{ markdown_body | safe }}
-          </div>
-        </div>
+        
       </div>
     </div>
     {# {% include "test" %} #}

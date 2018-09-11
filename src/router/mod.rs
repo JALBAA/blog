@@ -90,10 +90,21 @@ pub fn index (uri_info: &URI , nav: State<Arc<Mutex<NavInfo>>>) -> Option<Templa
 
 	f.read_to_string(&mut contents);
     // println!("With text:\n{}", contents);
-	let c:Config = toml::from_str(&contents[..]).unwrap();
+	let mut c:Config = toml::from_str(&contents[..]).unwrap();
 
+    let mut prevIdx = 0;
 	match c.production {
-		Some (c) => {
+		Some (mut c) => {
+            for mut article in &mut c.articles {
+                for mut year in &mut article.years {
+                    for mut month in &mut year.months {
+                        for mut a in &mut month.articles {
+                            a.portrait = format!("https://api.lylares.com/bing/image/?320/240/{}", prevIdx);
+                            prevIdx = prevIdx + 1;
+                        }
+                    }
+                }
+            }
             context.add("articles", &c.articles)
 		},
 		None => ()

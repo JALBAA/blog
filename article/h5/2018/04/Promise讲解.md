@@ -50,7 +50,7 @@ const promise = new Promise(function (resolve, reject) {
 
 *图 2.1-1*
 
-![promise状态和值](../img/tutorials/promise状态.png)
+![promise状态和值](/static/images/blog/promise-status.png)
 
 
 *例子 2.1-2*
