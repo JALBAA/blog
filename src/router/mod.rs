@@ -13,6 +13,8 @@ use rocket::http::uri::URI;
 use std::sync::{Mutex, Arc};
 use global::NavInfo;
 
+use global::set_nav_info;
+
 #[derive(Debug, Deserialize, Serialize)]
 struct Config {
 	production: Option<ConfigEnv>,
@@ -75,11 +77,11 @@ pub fn count2 (count: State<Arc<Mutex<i32>>>) -> String {
     format!("{}", *a)
 }
 
-fn set_nav_info<'a> (context:&'a mut Context, uri_info: &URI, nav:State<Arc<Mutex<NavInfo>>> ) -> &'a mut Context {
-    context.add("uri", &uri_info.as_str());
-    context.add("nav_info", &*nav.lock().unwrap());
-    context
-}
+// pub fn set_nav_info<'a> (context:&'a mut Context, uri_info: &URI, nav:State<Arc<Mutex<NavInfo>>> ) -> &'a mut Context {
+//     context.add("uri", &uri_info.as_str());
+//     context.add("nav_info", &*nav.lock().unwrap());
+//     context
+// }
 
 #[get("/")]
 pub fn index (uri_info: &URI , nav: State<Arc<Mutex<NavInfo>>>) -> Option<Template> {

@@ -1,4 +1,9 @@
 
+use tera::Context;
+use std::sync::{Mutex, Arc};
+use rocket::State;
+use rocket::http::uri::URI;
+
 #[derive(Hash, Serialize, Debug)]
 pub struct NavItem {
     name: String,
@@ -25,4 +30,10 @@ pub fn get_nav_info () -> NavInfo {
         nav_info.nav_items.push(a);
     }
     nav_info
+}
+
+pub fn set_nav_info<'a> (context:&'a mut Context, uri_info: &URI, nav:State<Arc<Mutex<NavInfo>>> ) -> &'a mut Context {
+    context.add("uri", &uri_info.as_str());
+    context.add("nav_info", &*nav.lock().unwrap());
+    context
 }

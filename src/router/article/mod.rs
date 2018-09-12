@@ -9,6 +9,11 @@ use rocket_contrib::Template;
 use rocket::Route;
 use std::collections::HashMap;
 
+use std::sync::{Mutex, Arc};
+use rocket::State;
+use rocket::http::uri::URI;
+use global::set_nav_info;
+use global::NavInfo;
 #[derive(Hash, Serialize, Debug)]
 struct Month {
     articles: Vec<Article>
@@ -88,12 +93,12 @@ fn visit_dirs(dir: &Path, files: &mut Vec<Article>) -> io::Result<()> {
     Ok(())
 }
 
-
-#[derive(Serialize, Debug)]
-struct Context {
-	markdown_body: String,
-    menu: Vec<Article>,
-}
+use tera::Context;
+// #[derive(Serialize, Debug)]
+// struct Context {
+// 	markdown_body: String,
+//     menu: Vec<Article>,
+// }
 
 pub fn routers () -> Vec<Route> {
     routes![get_article, fuck]
@@ -124,7 +129,9 @@ fn get_file_list () -> Option<Vec<Article>> {
 }
 
 #[get("/<cat>/<year>/<month>/<name>")]
-pub fn get_article(cat: String, year: String, month: String, name: String) -> Option<Template> {
+pub fn get_article(cat: String, year: String, month: String, name: String,
+uri_info: &URI, nav: State<Arc<Mutex<NavInfo>>>
+) -> Option<Template> {
     println!("{}", &format!("article/{}/{}/{}/{}", cat, year, month, name));
     let mut file = match File::open(Path::new(&format!("article/{}/{}/{}/{}.md", cat, year, month, name))) {
         Ok(f) => f,
@@ -140,10 +147,16 @@ pub fn get_article(cat: String, year: String, month: String, name: String) -> Op
         }
     };
     let r = comrak::markdown_to_html(&contents[..], &ComrakOptions::default());
-    let context = Context {
-		markdown_body: r,
-        menu: get_file_list().unwrap(),
-	};
+    // let mut context = Context {
+	// 	markdown_body: r,
+    //     menu: get_file_list().unwrap(),
+	// };
+    let mut context = Context::new();
+    // 	markdown_body: String,
+    //     menu: Vec<Article>,
+    set_nav_info(&mut context, uri_info, nav);
+    context.add("markdown_body", &r);
+    context.add("menu", &get_file_list().unwrap());
 	Some(Template::render("article", &context))
 }
 

@@ -203,8 +203,8 @@ input,select,textarea,button {
 }
 
 body {
-    padding: 30px;
-    max-width: 858px;
+    /*padding: 30px;
+    max-width: 858px;*/
     margin: 0 auto;
     font: 13px/1.4 Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
     color: #333;
@@ -654,6 +654,7 @@ pre code:before,pre code:after,pre tt:before,pre tt:after {
 
 
 </style>
+  {% include "common_header" %}
   <body>
     <div class="container-fluid">
       <div class="row flex-xl-nowrap">
