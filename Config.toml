@@ -8,11 +8,13 @@ books = [ { name = "effective java(英文版)"    , path = "effective-java.pdf" 
           { name = "设计模式四人帮版(英文版)"    , path = "partten.pdf" }, 
           { name = "rust-book第二版翻译版本"    , path = "rust-book" },
           { name = "SICP"                      , path = "sicp.pdf" },
-          { name = "线性代数"                   , path = "线性代数.pdf" } ]
+          { name = "线性代数"                   , path = "线性代数.pdf" },
+          { name = "CSAPP(英文版)"              , path = "csapp.pdf" } ]
 articles = [
     { tag = "h5", years = [
         { year = "2018", months = [
             { month = "09", articles = [ 
+                { name = "wiki类型系统笔记", portrait= "", intro= "阅读Wikipedia上的类型系统的词条，翻译并记录笔记" },
                 { name = "ES1规范读书笔记 (一)", portrait= "", intro= "概览" },
             ]},
             { month = "04", articles = [ 
