@@ -14,8 +14,9 @@ articles = [
     { tag = "h5", years = [
         { year = "2018", months = [
             { month = "09", articles = [ 
-                { name = "wiki类型系统笔记", portrait= "", intro= "阅读Wikipedia上的类型系统的词条，翻译并记录笔记" },
-                { name = "ES1规范读书笔记 (一)", portrait= "", intro= "概览" },
+                { name = "ES1规范读书笔记(二)" , portrait = "", intro = "记法约定"},
+                { name = "wiki类型系统笔记"    , portrait = "", intro = "阅读Wikipedia上的类型系统的词条，翻译并记录笔记" },
+                { name = "ES1规范读书笔记 (一)", portrait = "", intro = "概览" },
             ]},
             { month = "04", articles = [ 
                 { name = "Promise讲解", portrait= "", intro= "一个关于promise原理的介绍，同时附上一份符合promise/A+官方800+ test case的实现源码。" },
